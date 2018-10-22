@@ -1,0 +1,80 @@
+package introduction;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Pratice2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\selinum\\chromedriver.exe");
+		ChromeDriver driver=new ChromeDriver();
+		
+		driver.get("https://www.spicejet.com/"); //getting url
+		
+		driver.findElement(By.xpath("//input[@id='ctl00_mainContent_rbtnl_Trip_0']"));  //to click on one way button
+		
+		driver.findElement(By.xpath("//input[@id='ctl00_mainContent_ddl_originStation1_CTXT']")).click(); //to click on Depature city
+		
+		driver.findElement(By.xpath("//a[@text='Hyderabad (HYD)']")).click(); //select the place from where u depature....
+		
+		driver.findElement(By.xpath("//input[@id='ctl00_mainContent_ddl_destinationStation1_CTXT']")).click();  //to click on the Arrival city..
+		
+		driver.findElement(By.xpath("(//a[@text='Bengaluru (BLR)'])[2]")).click();  //to select the city from Arrival
+		
+		driver.findElement(By.xpath("//*[@id='ui-datepicker-div']/div[1]/table/tbody/tr[4]/td[3]/a")).click(); // to selected data. from calender..
+		
+		Thread.sleep(3000L);  //to make thread to wait.
+		
+		driver.findElement(By.xpath("//input[@id='ctl00_mainContent_chk_StudentDiscount']")).click();  //click on student discount checkbox
+		
+		driver.findElement(By.xpath("//input[@id='ctl00_mainContent_btn_FindFlights']")).click();  //click on search button
+		
+		driver.findElement(By.cssSelector("input[id='ControlGroupSelectView_AvailabilityInputSelectView_CheckBoxStudentAgreement']")).click(); //click on checkbox I have read and agreed the Terms & Conditions of Student Bookings.
+		
+		Thread.sleep(3000L); //to make thread to wait...
+		
+		driver.findElement(By.xpath("//div[@id='continue-to-contact-page']")).click();
+		
+		driver.findElement(By.xpath("//input[@id='CONTROLGROUPPASSENGER_ContactInputPassengerView_TextBoxFirstName']")).sendKeys("abc");  //enter the first name...
+		
+		
+		driver.findElement(By.xpath("//input[@id='CONTROLGROUPPASSENGER_ContactInputPassengerView_TextBoxLastName']")).sendKeys("efgh");  //enter the last name.
+		
+		driver.findElement(By.xpath("//input[@id='CONTROLGROUPPASSENGER_ContactInputPassengerView_TextBoxHomePhone']")).sendKeys("123456789");  //enter the phn number...
+		
+		
+		driver.findElement(By.xpath("//input[@id='CONTROLGROUPPASSENGER_ContactInputPassengerView_TextBoxEmailAddress']")).sendKeys("abc@gmail.com");  //enter the email
+		
+		
+		Select s=new Select(driver.findElement(By.xpath("//select[@id='CONTROLGROUPPASSENGER_ContactInputPassengerView_DropDownListCountry']")));  //static check box
+		
+		Thread.sleep(300L);
+		
+		s.selectByIndex(33);   //checking static way of select  by using index,we can check by uing text,value also
+		
+		driver.findElement(By.xpath("//input[@id='CONTROLGROUPPASSENGER_ContactInputPassengerView_TextBoxCity']")).sendKeys("Toronto");  //enter the city...
+		
+		driver.findElement(By.xpath("//input[@id='CONTROLGROUPPASSENGER_ContactInputPassengerView_CheckBoxPromoOpt']")).click(); //click on checkboxxx
+		
+		driver.findElement(By.xpath("//input[@id='CONTROLGROUPPASSENGER_ContactInputPassengerView_CheckBoxPromoOpt']")).isSelected(); //if check boxx is selected it display true in console..
+		
+		driver.findElement(By.xpath("//input[@id='CONTROLGROUPPASSENGER_PassengerInputViewPassengerView_TextBoxFirstName_0']")).sendKeys("xyzzz"); //enter name in adult sectionsss
+		
+		driver.findElement(By.xpath("//input[@id='CONTROLGROUPPASSENGER_PassengerInputViewPassengerView_TextBoxLastName_0']")).sendKeys("qwertyu"); //enter last name.
+		
+		Thread.sleep(100l);
+		driver.findElement(By.xpath("//input[@class='custom_date_pic required hidden']")).click(); //click on date calender....
+		
+		driver.findElement(By.xpath("//a[contains(text(),'24')]")).click();  // click on dateee
+		
+		driver.findElement(By.xpath("//input[@description='Adult 1']")).click(); 
+		
+	}
+
+}
+
+
+
